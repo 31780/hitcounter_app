@@ -7,14 +7,25 @@ services:
       - "8080:8080"
     environment:
       REDIS_USERNAME: default
-      REDIS_PASSWORD: KKsAO31VMFKdfwnw5INH2vfKQkyqlUCV
+      REDIS_PASSWORD: password
       REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_DB: 0
     depends_on:
       - redis
 
+  # Add a service for redis
   redis:
     image: "redis:alpine"
     ports:
       - "6379:6379"
+
+  # Add a new service for Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"

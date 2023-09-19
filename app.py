@@ -12,7 +12,7 @@ HIT_COUNTS = Counter('hit_count', 'Number of hits')
 @app.route('/')
 def index():
     username = os.environ.get('REDIS_USERNAME')
-    password = os.environ['REDIS_PASSWORD']
+    password = os.environ['REDIS_PASSWORD', 'default_password']
     host = os.environ['REDIS_HOST']
     port = os.environ['REDIS_PORT']
     db = os.environ['REDIS_DB']
@@ -27,7 +27,7 @@ def index():
      If the key doesn't exist, this now defaults to 0. """
     count = int(value) if value is not None else 0
 
-   # Increment the Prometheus counter
+    # Increment the Prometheus counter
     HIT_COUNTS.inc()
 
     response = f'Hello FELFEL. The count is: {count}'
