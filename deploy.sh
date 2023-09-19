@@ -15,9 +15,6 @@ kubectl apply -f app-service.yaml
 kubectl apply -f app-ingress.yaml
 kubectl apply -f app-servicemonitor.yaml
 
-# Deploy Prometheus using Helm
-# helm install prometheus prometheus-community/prometheus
-
 # Configure Prometheus to scrape the /metrics endpoint
 cat <<EOF | kubectl apply -f -
 apiVersion: monitoring.coreos.com/v1
@@ -31,7 +28,7 @@ spec:
     matchLabels:
       app: flask-app
   endpoints:
-  - port: 8080
+  - port: web
     path: /metrics
 EOF
 

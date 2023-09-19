@@ -1,4 +1,4 @@
-## Kubernetes service configuration
+# Kubernetes service configuration
 apiVersion: v1
 kind: Service
 metadata:

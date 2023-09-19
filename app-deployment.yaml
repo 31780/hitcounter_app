@@ -1,4 +1,4 @@
-## Kubernetes deployment Configuration
+# Kubernetes deployment Configuration
 apiVersion: apps/v1
 kind: Deployment
 metadata:
