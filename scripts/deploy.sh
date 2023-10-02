@@ -10,10 +10,10 @@ eval $(minikube docker-env)
 docker build -t hitcounter_app:latest .
 
 # Apply the Kubernetes configurations
-kubectl apply -f app-deployment.yaml
-kubectl apply -f app-service.yaml
-kubectl apply -f app-ingress.yaml
-kubectl apply -f app-servicemonitor.yaml
+kubectl apply -f ./kubernetes-configs/app-deployment.yaml
+kubectl apply -f ./kubernetes-configs/app-service.yaml
+kubectl apply -f ./kubernetes-configs/app-ingress.yaml
+kubectl apply -f ./kubernetes-configs/app-servicemonitor.yaml
 
 # Configure Prometheus to scrape the /metrics endpoint
 cat <<EOF | kubectl apply -f -
