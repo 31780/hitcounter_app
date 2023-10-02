@@ -12,5 +12,5 @@ spec:
   namespaceSelector:
     any: true
   endpoints:
-    port: web
+  - port: web
     path: /metrics

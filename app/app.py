@@ -12,7 +12,7 @@ HIT_COUNTS = Counter('hit_count', 'Number of hits')
 @app.route('/')
 def index():
     username = os.environ.get('REDIS_USERNAME')
-    password = os.environ['REDIS_PASSWORD', 'default_password']
+    password = os.environ.get('REDIS_PASSWORD')
     host = os.environ['REDIS_HOST']
     port = os.environ['REDIS_PORT']
     db = os.environ['REDIS_DB']
